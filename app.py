@@ -27,7 +27,7 @@ def practice(store):
         if out.status == "correct":
             print("Correct.")
         elif out.status == "retry":
-            print("Not yet. Try again.")
+            print("Not quite! Give it another try.")
         else:
             print(f"The answer is {out.revealed_answer}.")
 
@@ -52,7 +52,7 @@ def bank(store):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--store", choices=["memory", "json"], default="memory")
+    parser.add_argument("--store", choices=["memory", "json"], default="json")
     args = parser.parse_args()
     store = JsonFileStore() if args.store == "json" else MemoryStore()
     actions = {"practice": practice, "report": report, "bank": bank}
